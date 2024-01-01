@@ -949,7 +949,8 @@ function M.setup(opts)
     endfunction
 
     function! TablineSwitchTab(tabnr, mouseclicks, mousebutton, modifiers)
-      execute ":tab " . a:tabnr
+      execute a:tabnr . "tab"
+      execute a:tabnr . "tabnext"
     endfunction
 
     command! -nargs=1 TablineTabRename lua require('tabline').tab_rename(<f-args>)
