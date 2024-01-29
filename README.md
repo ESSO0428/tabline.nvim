@@ -28,7 +28,7 @@ A "buffer and tab" tabline:
 
 ```lua
 use {
-  'kdheepak/tabline.nvim',
+  'ESSO0428/tabline.nvim',
   config = function()
     require'tabline'.setup {
       -- Defaults configuration options
@@ -120,7 +120,7 @@ If you'd still like to use tabline with lualine's tabline instead, you can do th
 
 ```lua
 use {
-  'kdheepak/tabline.nvim',
+  'ESSO0428/tabline.nvim',
   config = function()
     require'tabline'.setup {enable = false}
   end,
