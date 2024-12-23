@@ -76,14 +76,16 @@ function M.extract_highlight_colors(color_group, scope)
   if vim.fn.hlexists(color_group) == 0 then
     return nil
   end
-  local color = vim.api.nvim_get_hl_by_name(color_group, true)
-  if color.background ~= nil then
-    color.bg = string.format("#%06x", color.background)
-    color.background = nil
+  local hl = vim.api.nvim_get_hl(0, { name = color_group, link = false })
+  local color = {
+    bg = hl.bg,
+    fg = hl.fg
+  }
+  if color.bg ~= nil then
+    color.bg = string.format("#%06x", tostring(color.bg))
   end
-  if color.foreground ~= nil then
-    color.fg = string.format("#%06x", color.foreground)
-    color.foreground = nil
+  if color.fg ~= nil then
+    color.fg = string.format("#%06x", tostring(color.fg))
   end
   if scope then
     return color[scope]
